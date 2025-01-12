@@ -3,7 +3,6 @@ version: 2
 models:
   - name: fct_orders
     description: "Combines order and payment information, summarizing successful payment amounts for each order."
-
     columns:
       - name: order_id
         description: "Unique identifier for each order."
@@ -19,7 +18,7 @@ models:
           - not_null
       - name: amount
         description: "The total amount of successful payments for the order. Defaults to 0 if no successful payments exist."
-        data_tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - order_id
